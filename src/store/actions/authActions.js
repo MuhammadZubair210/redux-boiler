@@ -12,68 +12,58 @@ export default class AuthActions {
             payload: user
         }
     }
-
     static signupSuccess(data) {
         return {
             type: SIGNUP_SUCCESS,
             payload: data
         }
     }
-
     static signupFailure(error) {
         return {
             type: SIGNUP_FAILURE,
             error: error
         }
     }
-
     static signin(user) {
         return {
             type: SIGNIN,
             payload: user
         }
     }
-
     static signinSuccess(data) {
         return {
             type: SIGNIN_SUCCESS,
             payload: data
         }
     }
-
     static demo(user) {
         return {
             type: DEMO,
             payload: user
         }
     }
-
     static demoSuccess(data) {
         return {
             type: DEMO_SUCCESS,
             payload: data
         }
     }
-
     static signinFailure(error) {
         return {
             type: SIGNIN_FAILURE,
             error: error
         }
     }
-
     static logout() {
         return {
             type: LOGOUT
         }
     }
-
     static logoutSuccess() {
         return {
             type: LOGOUT_SUCCESS
         }
     }
-
     static logoutFailure(error) {
         return {
             type: LOGOUT_FAILURE,

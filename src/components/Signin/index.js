@@ -8,14 +8,14 @@ class Signin extends Component {
     render() {
         return (
             <div>
-                <h1>Login screen</h1>
+                <h1>Redux Epic Observables</h1>
                 <button onClick={() =>
                     this.props.submit({ username: "Zubair", password: 123 })}>
                     Login user
                 </button>
 
                 <button onClick={() =>
-                    this.props.demoSuccess()}>
+                    this.props.getDemo()}>
                     submit2
                 </button>
             </div>

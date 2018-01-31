@@ -8,9 +8,7 @@ class Login extends Component {
 
     constructor(props) {
         super();
-        this.state = {
-
-        }
+        
     }
     componentWillReceiveProps(nextProps) {
         console.log(nextProps);
@@ -19,12 +17,12 @@ class Login extends Component {
     loginSubmit = (user) => {
         this.props.signin(user);
     }
-    demoSuccess = () => {
+    getDemo = () => {
         this.props.demo()
     }
     render() {
         return (
-            <Signin demoSuccess={this.demoSuccess} submit={this.loginSubmit} />
+            <Signin getDemo={this.getDemo} submit={this.loginSubmit} />
         );
     }
 }
