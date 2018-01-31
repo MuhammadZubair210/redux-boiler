@@ -1,7 +1,7 @@
 import {
     SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE,
-    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE
+    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE, DEMO_SUCCESS, DEMO
 } from '../constants'
 
 export default class AuthActions {
@@ -37,6 +37,20 @@ export default class AuthActions {
     static signinSuccess(data) {
         return {
             type: SIGNIN_SUCCESS,
+            payload: data
+        }
+    }
+
+    static demo(user) {
+        return {
+            type: DEMO,
+            payload: user
+        }
+    }
+
+    static demoSuccess(data) {
+        return {
+            type: DEMO_SUCCESS,
             payload: data
         }
     }

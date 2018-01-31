@@ -16,11 +16,11 @@ import {
 
 const ParentApp = () => (
   <div>
-    <App/>
+    <App />
 
     {/* App routing goes here!! */}
     <Route exact path="/signup" component={Signup} />
-    <Route exact path="/login" component={Signin} /> 
+    <Route exact path="/login" component={Signin} />
     <Route exact path="/dashboard" component={Home} />
 
   </div>

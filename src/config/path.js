@@ -7,5 +7,7 @@ export default class path {
     //authentication URL
     static SIGNUP = this.baseUrl + "api/user/signup";
     static LOGIN = "https://jsonplaceholder.typicode.com/posts"; // temp for now
-    
+
+    static GITHUB = `https://api.github.com/users/MuhammadZubair210`
+
 }

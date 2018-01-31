@@ -3,7 +3,7 @@ import 'rxjs/add/observable/dom/ajax';
 
 export class HttpService {
     //Get request HTTP service
-    static get(url, headers= {}){
+    static get(url){
         return Observable.ajax({
             url,
             method: 'GET',

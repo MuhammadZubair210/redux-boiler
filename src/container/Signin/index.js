@@ -6,32 +6,39 @@ import { Signin } from './../../components/index';
 
 class Login extends Component {
 
-    constructor(props){
+    constructor(props) {
         super();
-    }
+        this.state = {
 
+        }
+    }
     componentWillReceiveProps(nextProps) {
         console.log(nextProps);
         console.log(123)
     }
-
     loginSubmit = (user) => {
         this.props.signin(user);
     }
-
+    demoSuccess = () => {
+        this.props.demo()
+    }
     render() {
         return (
-            <Signin submit={this.loginSubmit} />
+            <Signin demoSuccess={this.demoSuccess} submit={this.loginSubmit} />
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return { authObj: state.AuthReducer };
+    return {
+        authObj: state,
+    };
 };
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        signin: (userObj) => dispatch(AuthActions.signin(userObj))
+        signin: (userObj) => dispatch(AuthActions.signin(userObj)),
+        demo: () => dispatch(AuthActions.demo())
     };
 };
 

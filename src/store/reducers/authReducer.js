@@ -1,7 +1,8 @@
 import {
     SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE,
-    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE
+    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE,
+    DEMO_SUCCESS, DEMO, DEMO_FAILURE
 } from '../constants'
 const initialState = {
     user: {},
@@ -78,6 +79,35 @@ export default function authReducer(state = initialState, action) {
                 isLoggedIn: false,
             }
         case LOGOUT_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                error: action.error
+            }
+        case DEMO:
+            console.log("DEMO-------------------------", action.payload)
+            return {
+                ...state,
+                user: {},
+                authUser: {},
+                isLoading: true,
+                isError: false,
+                error: {},
+                isLoggedIn: false,
+            }
+        case DEMO_SUCCESS:
+            console.log("DEMOSUCCESS-------------------------", action.payload)
+            return {
+                ...state,
+                authUser: {},
+                user: action.payload,
+                isLoading: false,
+                isError: false,
+                error: {},
+                isLoggedIn: false,
+            }
+        case DEMO_FAILURE:
             return {
                 ...state,
                 isLoading: false,
