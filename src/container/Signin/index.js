@@ -8,6 +8,7 @@ class Login extends Component {
 
     constructor(props) {
         super();
+        console.log(props)
     }
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.authObj.auth.data);

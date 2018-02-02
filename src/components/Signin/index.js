@@ -9,6 +9,7 @@ class Signin extends Component {
             username: '',
             password: ''
         }
+
     }
 
 
@@ -23,26 +24,25 @@ class Signin extends Component {
         return (
             <div>
                 <h1>Redux Epic Observables</h1>
-
                 <input type="text" onChange={this.change.bind(this)} />
                 <input type="password" onChange={this.change2.bind(this)} />
-
                 <button onClick={() =>
                     this.props.submit({ username: this.state.username, password: this.state.password })}>
                     Login user
                 </button>
-
                 <button onClick={() =>
                     this.props.getDemo()}>
                     submit2
                 </button>
-
                 <button onClick={() =>
                     this.props.seconddemoSuccess({ username: "Zubair Khan", password: 123 })}>
                     seconddemoSuccess
                 </button>
-
-            </div >
+                <br />
+                <br />
+                <br />
+                <p>{this.state.username}</p>
+            </div>
         );
     }
 }
