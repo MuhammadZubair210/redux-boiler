@@ -1,8 +1,10 @@
 import {
     SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE,
-    DEMO, DEMO_SUCCESS, DEMO_FAILURE
+    DEMO, DEMO_SUCCESS, DEMO_FAILURE, SECOND_DEMO,
+    SECOND_DEMO_SUCCESS, SECOND_DEMO_FAILURE
 } from '../constants'
+
 import 'rxjs';
 import { Observable } from 'rxjs';
 import { HttpService } from './../../services/http';
@@ -50,12 +52,8 @@ export default class AuthEpic {
                     });
             })
 
-
-
-
-    //Epic demo
+    // Epic demo
     static demoEpic = (action$) =>
-    
         action$.ofType(DEMO)
             .switchMap(({ payload }) => {
                 return HttpService.get(Path.GITHUB)
@@ -73,4 +71,25 @@ export default class AuthEpic {
                         });
                     });
             })
+
+    // Second Epic demo
+    static secondDemoEpic = (action$) =>
+        action$.ofType(SECOND_DEMO)
+            .switchMap(({ payload }) => {
+                return HttpService.post(Path.LOGIN, payload)
+                    .switchMap(({ response }) => {
+                        console.log(response)
+                        if (response) {
+                            return Observable.of({
+                                type: SECOND_DEMO_SUCCESS,
+                                payload: response
+                            });
+                        }
+                        return Observable.of({
+                            type: SECOND_DEMO_FAILURE,
+                            payload: "email and password not matched ! Try Again "
+                        });
+                    });
+            })
+
 }

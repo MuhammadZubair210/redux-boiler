@@ -2,11 +2,12 @@ import {
     SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE,
     LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE,
-    DEMO_SUCCESS, DEMO, DEMO_FAILURE
+    DEMO_SUCCESS, DEMO, DEMO_FAILURE,
+    SECOND_DEMO, SECOND_DEMO_SUCCESS, SECOND_DEMO_FAILURE
 } from '../constants'
 const initialState = {
-    user: {},
-    authUser: {},
+    data: {},
+    userdata: {},
     isLoading: false,
     isError: false,
     error: {},
@@ -18,8 +19,8 @@ export default function authReducer(state = initialState, action) {
         case SIGNUP:
             return {
                 ...state,
-                authUser: {},
-                user: {},
+                userdata: {},
+                data: {},
                 isLoading: true,
                 isError: false,
                 error: {},
@@ -28,7 +29,7 @@ export default function authReducer(state = initialState, action) {
         case SIGNUP_SUCCESS:
             return {
                 ...state,
-                authUser: action.payload,
+                userdata: action.payload,
                 isLoading: false,
             }
         case SIGNUP_FAILURE:
@@ -41,8 +42,8 @@ export default function authReducer(state = initialState, action) {
         case SIGNIN:
             return {
                 ...state,
-                user: {},
-                authUser: {},
+                data: {},
+                userdata: {},
                 isLoading: true,
                 isError: false,
                 error: {},
@@ -51,8 +52,8 @@ export default function authReducer(state = initialState, action) {
         case SIGNIN_SUCCESS:
             return {
                 ...state,
-                user: action.payload,
-                authUser: action.payload,
+                data: action.payload,
+                userdata: action.payload,
                 isLoading: false,
                 isLoggedIn: true,
             }
@@ -71,8 +72,8 @@ export default function authReducer(state = initialState, action) {
         case LOGOUT_SUCCESS:
             return {
                 ...state,
-                authUser: {},
-                user: {},
+                userdata: {},
+                data: {},
                 isLoading: false,
                 isError: false,
                 error: {},
@@ -86,22 +87,20 @@ export default function authReducer(state = initialState, action) {
                 error: action.error
             }
         case DEMO:
-            console.log("DEMO-------------------------", action.payload)
             return {
                 ...state,
-                user: {},
-                authUser: {},
+                data: {},
+                userdata: {},
                 isLoading: true,
                 isError: false,
                 error: {},
                 isLoggedIn: false,
             }
         case DEMO_SUCCESS:
-            console.log("DEMOSUCCESS-------------------------", action.payload)
             return {
                 ...state,
-                authUser: {},
-                user: action.payload,
+                userdata: {},
+                data: action.payload,
                 isLoading: false,
                 isError: false,
                 error: {},
@@ -114,6 +113,35 @@ export default function authReducer(state = initialState, action) {
                 isError: true,
                 error: action.error
             }
+
+        case SECOND_DEMO:
+            return {
+                ...state,
+                data: {},
+                userdata: {},
+                isLoading: true,
+                isError: false,
+                error: {},
+                isLoggedIn: false,
+            }
+        case SECOND_DEMO_SUCCESS:
+            return {
+                ...state,
+                userdata: {},
+                data: action.payload,
+                isLoading: false,
+                isError: false,
+                error: {},
+                isLoggedIn: false,
+            }
+        case SECOND_DEMO_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                error: action.error
+            }
+
         default:
             return state
     }

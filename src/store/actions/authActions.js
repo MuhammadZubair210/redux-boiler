@@ -1,7 +1,8 @@
 import {
     SIGNUP, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE,
-    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE, DEMO_SUCCESS, DEMO
+    LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE, DEMO_SUCCESS, DEMO,
+    SECOND_DEMO,SECOND_DEMO_SUCCESS,SECOND_DEMO_FAILURE
 } from '../constants'
 
 export default class AuthActions {
@@ -48,6 +49,26 @@ export default class AuthActions {
             payload: data
         }
     }
+
+    static seconddemo(user) {
+        return {
+            type: SECOND_DEMO,
+            payload: user
+        }
+    }
+    static seconddemoSuccess(data) {
+        return {
+            type: SECOND_DEMO_SUCCESS,
+            payload: data
+        }
+    }
+    static signinFailure(error) {
+        return {
+            type: SECOND_DEMO_FAILURE,
+            error: error
+        }
+    }
+
     static signinFailure(error) {
         return {
             type: SIGNIN_FAILURE,

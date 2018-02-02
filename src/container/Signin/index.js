@@ -8,10 +8,9 @@ class Login extends Component {
 
     constructor(props) {
         super();
-        
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
+        console.log(nextProps.authObj.auth.data);
         console.log(123)
     }
     loginSubmit = (user) => {
@@ -20,9 +19,14 @@ class Login extends Component {
     getDemo = () => {
         this.props.demo()
     }
+
+    seconddemoSuccess = (user) => {
+        this.props.seconddemo(user)
+    }
+
     render() {
         return (
-            <Signin getDemo={this.getDemo} submit={this.loginSubmit} />
+            <Signin getDemo={this.getDemo} submit={this.loginSubmit} seconddemoSuccess={this.seconddemoSuccess} />
         );
     }
 }
@@ -36,7 +40,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         signin: (userObj) => dispatch(AuthActions.signin(userObj)),
-        demo: () => dispatch(AuthActions.demo())
+        demo: () => dispatch(AuthActions.demo()),
+        seconddemo:(userObj) => dispatch(AuthActions.seconddemo(userObj))
     };
 };
 
