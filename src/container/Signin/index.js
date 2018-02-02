@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         signin: (userObj) => dispatch(AuthActions.signin(userObj)),
         demo: () => dispatch(AuthActions.demo()),
-        seconddemo:(userObj) => dispatch(AuthActions.seconddemo(userObj))
+        seconddemo: (userObj) => dispatch(AuthActions.seconddemo(userObj))
     };
 };
 

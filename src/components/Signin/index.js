@@ -41,7 +41,6 @@ class Signin extends Component {
                 <br />
                 <br />
                 <br />
-                <p>{this.state.username}</p>
             </div>
         );
     }
